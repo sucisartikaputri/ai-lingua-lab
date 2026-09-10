@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-LINGUA LAB</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8f8;
+            color: #173f43;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 75px;
+            background: #056770;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            font-weight: normal;
+        }
+
+        .nav-button {
+            background: white;
+            color: #056770;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 8%;
+            background: linear-gradient(135deg, #e8f6f5, #ffffff);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #d8eeee;
+            color: #056770;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            color: #073f44;
+        }
+
+        .hero h1 span {
+            color: #056770;
+        }
+
+        .hero p {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #557174;
+            margin-bottom: 30px;
+        }
+
+        .start-button {
+            background: #056770;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(5, 103, 112, 0.25);
+        }
+
+        .start-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* AI CIRCLE */
+        .ai-visual {
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: #056770;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 60px rgba(5, 103, 112, 0.25);
+        }
+
+        .ai-inner {
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .ai-inner h2 {
+            color: #056770;
+            font-size: 28px;
+        }
+
+        .ai-inner p {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #718789;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #073f44;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #718789;
+            font-size: 16px;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #dceaea;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            font-size: 36px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #056770;
+        }
+
+        .card p {
+            color: #718789;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* CTA */
+        .cta {
+            margin: 30px 8% 70px;
+            background: #056770;
+            color: white;
+            padding: 55px;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .cta button {
+            border: none;
+            background: white;
+            color: #056770;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #718789;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .ai-visual {
+                width: 260px;
+                height: 260px;
+            }
+
+            .ai-inner {
+                width: 190px;
+                height: 190px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">
+            AI-LINGUA <span>LAB</span>
+        </div>
+
+        <button class="nav-button" onclick="startPractice()">
+            Start Practice
+        </button>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="badge">
+                ✦ AI-Powered Language Practice
+            </div>
+
+            <h1>
+                Learn.<br>
+                Practice.<br>
+                <span>Communicate.</span>
+            </h1>
+
+            <p>
+                An interactive language practice space designed
+                for students to develop English skills through
+                AI-powered learning experiences.
+            </p>
+
+            <button class="start-button" onclick="startPractice()">
+                Start Your Practice →
+            </button>
+
+        </div>
+
+
+        <div class="ai-visual">
+
+            <div class="ai-inner">
+
+                <div>
+                    <h2>AI<br>LINGUA</h2>
+
+                    <p>
+                        Your AI-powered
+                        language partner
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRACTICE SECTION -->
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>What would you like to practice?</h2>
+
+            <p>
+                Choose a skill and start your learning journey.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card" onclick="practice('Speaking')">
+
+                <div class="icon">🎙️</div>
+
+                <h3>Speaking</h3>
+
+                <p>
+                    Practice conversations and improve
+                    your fluency with an AI conversation partner.
+                </p>
+
+            </div>
+
+
+            <div class="card" onclick="practice('Listening')">
+
+                <div class="icon">🎧</div>
+
+                <h3>Listening</h3>
+
+                <p>
+                    Develop your listening comprehension
+                    through interactive activities.
+                </p>
+
+            </div>
+
+
+            <div class="card" onclick="practice('Writing')">
+
+                <div class="icon">✍️</div>
+
+                <h3>Academic Writing</h3>
+
+                <p>
+                    Practice academic writing and receive
+                    instant AI-powered feedback.
+                </p>
+
+            </div>
+
+
+            <div class="card" onclick="practice('Healthcare English')">
+
+                <div class="icon">🏥</div>
+
+                <h3>Healthcare English</h3>
+
+                <p>
+                    Practice communication in real-world
+                    healthcare situations.
+                </p>
+
+            </div>
+
+
+            <div class="card" onclick="practice('Vocabulary')">
+
+                <div class="icon">📚</div>
+
+                <h3>Vocabulary</h3>
+
+                <p>
+                    Expand your vocabulary through
+                    interactive learning activities.
+                </p>
+
+            </div>
+
+
+            <div class="card" onclick="practice('TOEFL')">
+
+                <div class="icon">🎯</div>
+
+                <h3>TOEFL Practice</h3>
+
+                <p>
+                    Prepare for TOEFL through targeted
+                    language practice.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+        <h2>Your Language Journey Starts Here.</h2>
+
+        <p>
+            Practice anytime. Learn independently.
+            Communicate confidently.
+        </p>
+
+        <button onclick="startPractice()">
+            Enter AI-LINGUA LAB
+        </button>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        AI-LINGUA LAB · Unit Pengembangan Bahasa<br>
+        Poltekkes Kemenkes Bengkulu
+
+    </footer>
+
+
+    <script>
+
+        function startPractice() {
+
+            alert(
+                "Welcome to AI-LINGUA LAB! 🚀\n\n" +
+                "Choose a language skill to begin your practice."
+            );
+
+        }
+
+
+        function practice(skill) {
+
+            alert(
+                "You selected: " + skill +
+                "\n\nThis practice module will be available soon."
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
